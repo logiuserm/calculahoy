@@ -1,21 +1,27 @@
+'use client';
+
 import Link from 'next/link';
-import { Calculator } from 'lucide-react';
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-3 text-xl font-bold text-indigo-400">
-          <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-lg">
-            <Calculator className="w-6 h-6" />
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+            %
           </div>
-          <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
             CalculaHoy
           </span>
         </Link>
-        <nav className="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
-          <Link href="/" className="hover:text-indigo-400 transition-colors">Inicio</Link>
-          <Link href="/contacto" className="hover:text-indigo-400 transition-colors">Contacto</Link>
+
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+          <Link href="/#calculadoras" className="hover:text-indigo-400 transition-colors">
+            Calculadoras
+          </Link>
+          <Link href="/contacto" className="hover:text-indigo-400 transition-colors">
+            Contacto
+          </Link>
         </nav>
       </div>
     </header>
