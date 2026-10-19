@@ -1,10 +1,18 @@
-export default function AdSlot({ label = "Publicidad AdSense" }: { label?: string }) {
+'use client';
+
+interface AdSlotProps {
+  id?: string;
+  format?: 'horizontal' | 'vertical' | 'rectangle';
+  className?: string;
+}
+
+export default function AdSlot({ id, format = 'horizontal', className = '' }: AdSlotProps) {
   return (
-    <div className="my-8 p-4 bg-slate-800/40 border border-dashed border-slate-700/60 rounded-xl text-center">
-      <span className="text-xs uppercase tracking-wider text-slate-500 font-mono block mb-2">{label}</span>
-      <div className="h-24 sm:h-32 bg-slate-900/60 rounded flex items-center justify-center text-slate-600 text-xs">
-        [Espacio reservado para AdSense]
-      </div>
+    <div
+      id={id}
+      className={`my-6 p-4 bg-slate-900/40 border border-dashed border-slate-800 rounded-xl flex items-center justify-center text-xs text-slate-500 min-h-[90px] ${className}`}
+    >
+      <span>Espacio publicitario AdSense ({format})</span>
     </div>
   );
 }
