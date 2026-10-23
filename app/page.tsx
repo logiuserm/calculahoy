@@ -100,7 +100,7 @@ export default function Home() {
       {/* Footer / Enlaces Legales (Obligatorios para AdSense) */}
       <footer className="mt-20 border-t border-slate-200 bg-white py-8">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} PlantillasYGuias. Todos los derechos reservados.</p>
+          <p>© 2026 PlantillasYGuias. Todos los derechos reservados.</p>
           <div className="flex gap-4">
             <Link href="/politica-de-privacidad" className="hover:underline">Política de Privacidad</Link>
             <Link href="/politica-de-cookies" className="hover:underline">Política de Cookies</Link>
