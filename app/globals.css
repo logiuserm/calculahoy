@@ -6,16 +6,32 @@
   }
   body {
     @apply bg-slate-950 text-slate-100 antialiased font-sans min-h-screen selection:bg-indigo-500 selection:text-white;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
 }
 
 .glow-effect {
-  animation: pulseGlow 4s infinite ease-in-out;
+  animation: pulseGlow 5s infinite ease-in-out;
+}
+
+/* Espacio reservado para contenedores AdSense que evita CLS */
+.adsense-placeholder {
+  min-height: 280px;
+  @apply bg-slate-900/40 border border-slate-800/60 rounded-2xl flex items-center justify-center text-slate-600 text-xs font-mono my-8;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, .no-print {
+    display: none !important;
+  }
 }

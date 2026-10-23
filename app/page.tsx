@@ -1,9 +1,52 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function Home() {
+  const [busqueda, setBusqueda] = useState('')
+
+  const plantillas = [
+    {
+      id: 'carta-renuncia',
+      titulo: 'Carta de Renuncia Voluntaria',
+      categoria: 'Laboral • Destacado',
+      descripcion: 'Redaccion oficial ajustada al Estatuto de los Trabajadores. Incluye clausula de solicitud de finiquito y liquidacion.',
+      badge: 'Preaviso 15 dias',
+      link: '/plantillas/carta-renuncia',
+      destacado: true,
+      color: 'indigo'
+    },
+    {
+      id: 'contrato-alquiler',
+      titulo: 'Contrato de Alquiler de Vivienda',
+      categoria: 'Vivienda',
+      descripcion: 'Borrador basico para arrendamiento urbano con clausulas de fianza, renta mensual y conservacion.',
+      badge: 'LAU 2026',
+      link: '/plantillas/contrato-alquiler',
+      destacado: false,
+      color: 'emerald'
+    },
+    {
+      id: 'reclamacion',
+      titulo: 'Carta de Reclamacion Formal',
+      categoria: 'Consumo & Servicios',
+      descripcion: 'Dirigida a Atencion al Cliente para exigir soluciones a cobros indebidos, bajas no procesadas o incidencias.',
+      badge: 'Derecho Consumo',
+      link: '/plantillas/reclamacion',
+      destacado: false,
+      color: 'amber'
+    }
+  ]
+
+  const plantillasFiltradas = plantillas.filter(p => 
+    p.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
+    p.categoria.toLowerCase().includes(busqueda.toLowerCase())
+  )
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      {/* Navegacion Flotante */}
+      {/* Navegacion Flotante con Glassmorphism */}
       <header className="sticky top-4 z-50 max-w-5xl mx-auto px-4 w-full">
         <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-2xl px-6 h-16 flex items-center justify-between shadow-2xl shadow-indigo-950/20">
           <Link href="/" className="font-extrabold text-lg text-white tracking-tight flex items-center gap-2.5 group">
@@ -29,12 +72,12 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section con Micro-Widgets */}
-      <main className="mb-auto max-w-6xl mx-auto px-4 pt-16 pb-12 w-full">
+      {/* Hero Section */}
+      <main className="mb-auto max-w-6xl mx-auto px-4 pt-12 pb-12 w-full">
         <section className="text-center max-w-3xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-300 text-xs font-semibold backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-ping" />
-            Actualizado a la normativa laboral e inquilinato 2026
+            Modelos adaptados a la normativa legal 2026
           </div>
           
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
@@ -45,10 +88,26 @@ export default function Home() {
           </h1>
 
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Genera modelos oficiales en segundos desde tu navegador. Rellena los datos en tiempo real y copia el resultado listo para presentar.
+            Genera modelos oficiales en segundos. Rellena los campos interactivamente, previsualiza el resultado y copialo o imprimelo directamente.
           </p>
 
-          {/* Micro Widget Estadisticas */}
+          {/* Buscador Interactivo */}
+          <div className="pt-2 max-w-md mx-auto">
+            <div className="relative">
+              <input 
+                type="text" 
+                placeholder="Buscar plantilla (ej. renuncia, alquiler, reclamacion)..." 
+                value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)}
+                className="w-full bg-slate-900/90 border border-slate-700/80 rounded-2xl px-5 py-3.5 pl-11 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all shadow-inner"
+              />
+              <svg className="w-5 h-5 text-slate-500 absolute left-3.5 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Metrics Widget */}
           <div className="pt-4 flex items-center justify-center gap-8 text-xs text-slate-400 border-y border-slate-800/80 py-4 max-w-md mx-auto">
             <div className="flex flex-col items-center">
               <span className="text-white font-bold text-base">100%</span>
@@ -57,7 +116,7 @@ export default function Home() {
             <div className="h-8 w-px bg-slate-800" />
             <div className="flex flex-col items-center">
               <span className="text-white font-bold text-base">Instantaneo</span>
-              <span>Copiar y Usar</span>
+              <span>Copia Directa</span>
             </div>
             <div className="h-8 w-px bg-slate-800" />
             <div className="flex flex-col items-center">
@@ -68,117 +127,75 @@ export default function Home() {
         </section>
 
         {/* BENTO GRID DE PLANTILLAS */}
-        <section id="plantillas" className="pt-20">
+        <section id="plantillas" className="pt-16">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-extrabold text-white tracking-tight">
-                Catalogo de Plantillas
+                Catalogo de Plantillas Legales
               </h2>
-              <p className="text-slate-400 text-xs mt-1">Selecciona una categoria para rellenar tu documento</p>
+              <p className="text-slate-400 text-xs mt-1">Selecciona la plantilla que necesitas personalizar</p>
             </div>
             <span className="text-xs px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-slate-400 font-mono">
-              3 Modelos Activos
+              {plantillasFiltradas.length} Modelos Disponibles
             </span>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            
-            {/* Tarjeta Bento 1: CARTA DE RENUNCIA */}
-            <div className="md:col-span-2 bg-gradient-to-br from-slate-900/90 to-indigo-950/40 border border-indigo-500/30 rounded-3xl p-8 relative overflow-hidden group hover:border-indigo-500/60 transition-all duration-300 shadow-xl flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none group-hover:bg-indigo-500/20 transition-all" />
-              
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-bold px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 rounded-lg">
-                    Laboral • Destacado
-                  </span>
-                  <span className="text-xs text-indigo-400 font-mono">Preaviso 15 dias</span>
-                </div>
-
-                <h3 className="text-2xl font-extrabold text-white group-hover:text-indigo-300 transition-colors">
-                  Carta de Renuncia Voluntaria
-                </h3>
-
-                <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-xl">
-                  Redaccion oficial ajustada al Estatuto de los Trabajadores. Incluye clausula de solicitud de finiquito y liquidacion de vacaciones no disfrutadas.
-                </p>
-              </div>
-
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-800/80 pt-6">
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  Formato con copia al portapapeles
-                </div>
-
-                <Link 
-                  href="/plantillas/carta-renuncia" 
-                  className="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-95 text-center flex items-center justify-center gap-2 group/btn"
-                >
-                  Rellenar Plantilla 
-                  <span className="group-hover/btn:translate-x-1 transition-transform">&rarr;</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Tarjeta Bento 2: CONTRATO DE ALQUILER */}
-            <div className="bg-slate-900/80 border border-slate-800/80 rounded-3xl p-6 flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300 group shadow-lg">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-bold px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-lg">
-                    Vivienda
-                  </span>
-                  <span className="text-xs text-slate-500 font-mono">LAU</span>
-                </div>
-
-                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
-                  Contrato de Alquiler
-                </h3>
-
-                <p className="text-slate-400 text-xs mt-3 leading-relaxed">
-                  Borrador basico para arrendamiento de vivienda habitual con clausulas de fianza y renta mensual.
-                </p>
-              </div>
-
-              <Link 
-                href="/plantillas/contrato-alquiler" 
-                className="mt-6 w-full py-2.5 px-4 bg-slate-800 hover:bg-emerald-600/20 border border-slate-700 hover:border-emerald-500/40 text-slate-200 hover:text-emerald-300 font-semibold text-xs rounded-xl transition-all text-center block"
+            {plantillasFiltradas.map((item) => (
+              <div 
+                key={item.id} 
+                className={`${item.destacado ? 'md:col-span-2 bg-gradient-to-br from-slate-900/90 to-indigo-950/40 border-indigo-500/30 hover:border-indigo-500/60' : 'bg-slate-900/80 border-slate-800/80 hover:border-slate-700'} border rounded-3xl p-6 sm:p-8 relative overflow-hidden group transition-all duration-300 shadow-xl flex flex-col justify-between`}
               >
-                Configurar Alquiler &rarr;
-              </Link>
-            </div>
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 rounded-lg">
+                      {item.categoria}
+                    </span>
+                    <span className="text-xs text-slate-400 font-mono">{item.badge}</span>
+                  </div>
 
-            {/* Tarjeta Bento 3: CARTA DE RECLAMACION */}
-            <div className="md:col-span-3 bg-slate-900/80 border border-slate-800/80 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 hover:border-amber-500/50 transition-all duration-300 group shadow-lg">
-              <div className="space-y-2">
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-bold px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-lg">
-                    Consumo & Servicios
-                  </span>
-                  <span className="text-xs text-slate-400 font-mono">Reembolsos & Incidencias</span>
+                  <h3 className="text-2xl font-extrabold text-white group-hover:text-indigo-300 transition-colors">
+                    {item.titulo}
+                  </h3>
+
+                  <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+                    {item.descripcion}
+                  </p>
                 </div>
 
-                <h3 className="text-xl font-extrabold text-white group-hover:text-amber-300 transition-colors">
-                  Carta de Reclamacion Formal
-                </h3>
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-800/80 pt-6">
+                  <div className="flex items-center gap-2 text-xs text-slate-400">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    Generador en tiempo real
+                  </div>
 
-                <p className="text-slate-400 text-xs sm:text-sm max-w-2xl">
-                  Dirigida a servicios de Atencion al Cliente para exigir soluciones a cobros indebidos, bajas no procesadas o incumplimiento de contratos comerciales.
-                </p>
+                  <Link 
+                    href={item.link} 
+                    className="w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm rounded-xl transition-all shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-95 text-center flex items-center justify-center gap-2"
+                  >
+                    Rellenar Plantilla &rarr;
+                  </Link>
+                </div>
               </div>
-
-              <Link 
-                href="/plantillas/reclamacion" 
-                className="w-full sm:w-auto shrink-0 px-6 py-3 bg-slate-800 hover:bg-amber-500 hover:text-slate-950 border border-slate-700 text-white font-semibold text-xs rounded-xl transition-all text-center shadow-md hover:scale-105"
-              >
-                Crear Reclamacion &rarr;
-              </Link>
-            </div>
-
+            ))}
           </div>
+        </section>
+
+        {/* Bloque Contenedor Preparado para Anuncio AdSense (Sin CLS) */}
+        <div className="adsense-placeholder no-print">
+          <span>[ Espacio Reservado para Publicidad Google AdSense ]</span>
+        </div>
+
+        {/* Guia Informativa SEO en Portada */}
+        <section className="mt-16 bg-slate-900/40 border border-slate-800/60 rounded-3xl p-8 max-w-4xl mx-auto space-y-6">
+          <h3 className="text-xl font-bold text-white">¿Como funcionan nuestras plantillas legales rellenables?</h3>
+          <p className="text-slate-400 text-sm leading-relaxed">
+            Nuestra plataforma ofrece un sistema rapido y seguro para la redaccion de documentos administrativos y contratos. Al completar los formularios interactivos, el texto del documento se actualiza instantaneamente en pantalla. Ningun dato introducido se almacena en servidores externos, garantizando la maxima privacidad conforme al RGPD.
+          </p>
         </section>
       </main>
 
-      {/* Pie de pagina */}
+      {/* Pie de Pagina */}
       <footer className="border-t border-slate-900 bg-slate-950/80 py-10 mt-20">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs text-slate-500">
           <div className="flex items-center gap-2">
