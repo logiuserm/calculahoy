@@ -3,14 +3,14 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      {/* Navegación Flotante con efecto glassmorphism */}
+      {/* Navegacion Flotante */}
       <header className="sticky top-4 z-50 max-w-5xl mx-auto px-4 w-full">
         <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-2xl px-6 h-16 flex items-center justify-between shadow-2xl shadow-indigo-950/20">
           <Link href="/" className="font-extrabold text-lg text-white tracking-tight flex items-center gap-2.5 group">
             <span className="bg-gradient-to-tr from-indigo-600 to-purple-500 text-white w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
               P
             </span>
-            <span>Plantillas<span className="text-indigo-400">YGuías</span></span>
+            <span>Plantillas<span className="text-indigo-400">YGuias</span></span>
           </Link>
           <nav className="flex items-center gap-6 text-sm font-medium text-slate-400">
             <Link href="#plantillas" className="hover:text-white transition-colors">
@@ -32,7 +32,7 @@ export default function Home() {
       {/* Hero Section con Micro-Widgets */}
       <main className="mb-auto max-w-6xl mx-auto px-4 pt-16 pb-12 w-full">
         <section className="text-center max-w-3xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-300 text-xs font-semibold backdrop-blur-md animate-bounce duration-1000">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-300 text-xs font-semibold backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-ping" />
             Actualizado a la normativa laboral e inquilinato 2026
           </div>
@@ -40,7 +40,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
             Documentos Legales <br />
             <span className="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">
-              Rápidos, Exactos e Inteligentes
+              Rapidos, Exactos e Inteligentes
             </span>
           </h1>
 
@@ -48,7 +48,7 @@ export default function Home() {
             Genera modelos oficiales en segundos desde tu navegador. Rellena los datos en tiempo real y copia el resultado listo para presentar.
           </p>
 
-          {/* Micro Widget Estadísticas */}
+          {/* Micro Widget Estadisticas */}
           <div className="pt-4 flex items-center justify-center gap-8 text-xs text-slate-400 border-y border-slate-800/80 py-4 max-w-md mx-auto">
             <div className="flex flex-col items-center">
               <span className="text-white font-bold text-base">100%</span>
@@ -56,7 +56,7 @@ export default function Home() {
             </div>
             <div className="h-8 w-px bg-slate-800" />
             <div className="flex flex-col items-center">
-              <span className="text-white font-bold text-base">Instantáneo</span>
+              <span className="text-white font-bold text-base">Instantaneo</span>
               <span>Copiar y Usar</span>
             </div>
             <div className="h-8 w-px bg-slate-800" />
@@ -72,9 +72,9 @@ export default function Home() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-extrabold text-white tracking-tight">
-                Catálogo de Plantillas
+                Catalogo de Plantillas
               </h2>
-              <p className="text-slate-400 text-xs mt-1">Selecciona una categoría para rellenar tu documento</p>
+              <p className="text-slate-400 text-xs mt-1">Selecciona una categoria para rellenar tu documento</p>
             </div>
             <span className="text-xs px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-slate-400 font-mono">
               3 Modelos Activos
@@ -83,7 +83,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             
-            {/* Tarjeta Bento 1: CARTA DE RENUNCIA (Tarjeta Principal - Ocupa 2 columnas en desktop) */}
+            {/* Tarjeta Bento 1: CARTA DE RENUNCIA */}
             <div className="md:col-span-2 bg-gradient-to-br from-slate-900/90 to-indigo-950/40 border border-indigo-500/30 rounded-3xl p-8 relative overflow-hidden group hover:border-indigo-500/60 transition-all duration-300 shadow-xl flex flex-col justify-between">
               <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none group-hover:bg-indigo-500/20 transition-all" />
               
@@ -92,7 +92,7 @@ export default function Home() {
                   <span className="text-xs font-bold px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 rounded-lg">
                     Laboral • Destacado
                   </span>
-                  <span className="text-xs text-indigo-400 font-mono">Preaviso 15 días</span>
+                  <span className="text-xs text-indigo-400 font-mono">Preaviso 15 dias</span>
                 </div>
 
                 <h3 className="text-2xl font-extrabold text-white group-hover:text-indigo-300 transition-colors">
@@ -100,7 +100,7 @@ export default function Home() {
                 </h3>
 
                 <p className="text-slate-300 text-sm mt-3 leading-relaxed max-w-xl">
-                  Redacción oficial ajustada al Estatuto de los Trabajadores. Incluye cláusula de solicitud de finiquito y liquidación de vacaciones no disfrutadas.
+                  Redaccion oficial ajustada al Estatuto de los Trabajadores. Incluye clausula de solicitud de finiquito y liquidacion de vacaciones no disfrutadas.
                 </p>
               </div>
 
@@ -135,7 +135,7 @@ export default function Home() {
                 </h3>
 
                 <p className="text-slate-400 text-xs mt-3 leading-relaxed">
-                  Borrador básico para arrendamiento de vivienda habitual con cláusulas de fianza y renta mensual.
+                  Borrador basico para arrendamiento de vivienda habitual con clausulas de fianza y renta mensual.
                 </p>
               </div>
 
@@ -147,7 +147,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Tarjeta Bento 3: CARTA DE RECLAMACIÓN (Ocupa la parte inferior) */}
+            {/* Tarjeta Bento 3: CARTA DE RECLAMACION */}
             <div className="md:col-span-3 bg-slate-900/80 border border-slate-800/80 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 hover:border-amber-500/50 transition-all duration-300 group shadow-lg">
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
@@ -158,11 +158,11 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-xl font-extrabold text-white group-hover:text-amber-300 transition-colors">
-                  Carta de Reclamación Formal
+                  Carta de Reclamacion Formal
                 </h3>
 
                 <p className="text-slate-400 text-xs sm:text-sm max-w-2xl">
-                  Dirigida a servicios de Atención al Cliente para exigir soluciones a cobros indebidos, bajas no procesadas o incumplimiento de contratos comerciales.
+                  Dirigida a servicios de Atencion al Cliente para exigir soluciones a cobros indebidos, bajas no procesadas o incumplimiento de contratos comerciales.
                 </p>
               </div>
 
@@ -170,7 +170,7 @@ export default function Home() {
                 href="/plantillas/reclamacion" 
                 className="w-full sm:w-auto shrink-0 px-6 py-3 bg-slate-800 hover:bg-amber-500 hover:text-slate-950 border border-slate-700 text-white font-semibold text-xs rounded-xl transition-all text-center shadow-md hover:scale-105"
               >
-                Crear Reclamación &rarr;
+                Crear Reclamacion &rarr;
               </Link>
             </div>
 
@@ -178,16 +178,16 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Pie de página elegante */}
+      {/* Pie de pagina */}
       <footer className="border-t border-slate-900 bg-slate-950/80 py-10 mt-20">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-indigo-500" />
-            <p>© 2026 PlantillasYGuías. Todos los derechos reservados.</p>
+            <p>© 2026 PlantillasYGuias. Todos los derechos reservados.</p>
           </div>
           <div className="flex items-center gap-6 font-medium">
-            <Link href="/politica-de-privacidad" className="hover:text-slate-300 transition-colors">Política de Privacidad</Link>
-            <Link href="/politica-de-cookies" className="hover:text-slate-300 transition-colors">Política de Cookies</Link>
+            <Link href="/politica-de-privacidad" className="hover:text-slate-300 transition-colors">Politica de Privacidad</Link>
+            <Link href="/politica-de-cookies" className="hover:text-slate-300 transition-colors">Politica de Cookies</Link>
             <Link href="/contacto" className="hover:text-slate-300 transition-colors">Contacto</Link>
           </div>
         </div>
