@@ -2,113 +2,84 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-      {/* Header / Navegación */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
+    <div className="min-h-screen flex flex-col justify-between bg-slate-50">
+      {/* Navegación Superior */}
+      <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-xl text-indigo-600">
-            Plantillas & Guías Útiles
+          <Link href="/" className="font-extrabold text-xl text-indigo-600 tracking-tight flex items-center gap-2">
+            <span className="bg-indigo-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm shadow-sm">P</span>
+            PlantillasYGuías
           </Link>
           <nav className="flex gap-6 text-sm font-medium text-slate-600">
-            <Link href="#plantillas" className="hover:text-indigo-600 transition">
+            <Link href="#plantillas" className="hover:text-indigo-600 transition-colors">
               Plantillas
             </Link>
-            <Link href="#herramientas" className="hover:text-indigo-600 transition">
-              Herramientas
+            <Link href="/politica-de-privacidad" className="hover:text-indigo-600 transition-colors">
+              Privacidad
             </Link>
-            <Link href="/sobre-nosotros" className="hover:text-indigo-600 transition">
-              Sobre Nosotros
+            <Link href="/contacto" className="hover:text-indigo-600 transition-colors">
+              Contacto
             </Link>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-          Modelos, Plantillas y Guías Prácticas Rellenables
-        </h1>
-        <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-          Encuentra documentos legales y administrativos listos para personalizar, copiar y descargar gratis. Sin registro previo.
-        </p>
-      </section>
+      {/* Hero Section / Encabezado principal */}
+      <main className="mb-auto">
+        <section className="max-w-4xl mx-auto px-4 pt-16 pb-12 text-center">
+          <span className="inline-block px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold rounded-full mb-4 shadow-xs">
+            100% Gratis y Sin Registro
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Modelos y Plantillas Legales <span className="text-indigo-600">Listos para Rellenar</span>
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Genera cartas de renuncia, contratos y solicitudes administrativas en segundos. Copia el texto directamente o descarga tu documento.
+          </p>
+        </section>
 
-      {/* Grid de Plantillas */}
-      <section id="plantillas" className="max-w-6xl mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold text-slate-800 mb-6">Plantillas Populares</h2>
-        
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Tarjeta 1: Carta de Renuncia */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-lg transition">
-            <span className="text-xs font-semibold px-2.5 py-1 bg-indigo-50 text-indigo-600 rounded-full">
-              Laboral
-            </span>
-            <h3 className="text-xl font-bold mt-3 text-slate-900">
-              Carta de Renuncia Voluntaria
-            </h3>
-            <p className="text-sm text-slate-600 mt-2">
-              Modelo editable con preaviso legal de 15 días listo para imprimir o enviar.
-            </p>
-            <Link 
-              href="/plantillas/carta-renuncia" 
-              className="mt-4 inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-700"
-            >
-              Rellenar plantilla &rarr;
-            </Link>
+        {/* Sección de Plantillas */}
+        <section id="plantillas" className="max-w-6xl mx-auto px-4 py-8">
+          <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+            Documentos Destacados
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Tarjeta 1: Carta de Renuncia */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all group flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold px-2.5 py-1 bg-indigo-50 text-indigo-600 rounded-md">
+                  Laboral
+                </span>
+                <h3 className="text-xl font-bold mt-4 text-slate-900 group-hover:text-indigo-600 transition-colors">
+                  Carta de Renuncia Voluntaria
+                </h3>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  Modelo legal con preaviso obligatorio de 15 días. Rellena tus datos y copia la carta generada al instante.
+                </p>
+              </div>
+              <Link 
+                href="/plantillas/carta-renuncia" 
+                className="mt-6 inline-flex items-center justify-center w-full py-2.5 px-4 bg-slate-900 hover:bg-indigo-600 text-white font-semibold text-sm rounded-xl transition-colors shadow-xs"
+              >
+                Rellenar Plantilla &rarr;
+              </Link>
+            </div>
           </div>
+        </section>
+      </main>
 
-          {/* Tarjeta 2: Contrato de Alquiler */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-lg transition">
-            <span className="text-xs font-semibold px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-full">
-              Vivienda
-            </span>
-            <h3 className="text-xl font-bold mt-3 text-slate-900">
-              Contrato de Alquiler Simple
-            </h3>
-            <p className="text-sm text-slate-600 mt-2">
-              Modelo básico con las cláusulas obligatorias de arrendamiento urbano.
-            </p>
-            <Link 
-              href="/plantillas/contrato-alquiler" 
-              className="mt-4 inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-700"
-            >
-              Rellenar plantilla &rarr;
-            </Link>
-          </div>
-
-          {/* Tarjeta 3: Carta de Reclamación */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-lg transition">
-            <span className="text-xs font-semibold px-2.5 py-1 bg-amber-50 text-amber-600 rounded-full">
-              Consumo
-            </span>
-            <h3 className="text-xl font-bold mt-3 text-slate-900">
-              Carta de Reclamación
-            </h3>
-            <p className="text-sm text-slate-600 mt-2">
-              Formulario para solicitar devoluciones o exigir el cumplimiento de un servicio.
-            </p>
-            <Link 
-              href="/plantillas/carta-reclamacion" 
-              className="mt-4 inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-700"
-            >
-              Rellenar plantilla &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer / Enlaces Legales (Obligatorios para AdSense) */}
-      <footer className="mt-20 border-t border-slate-200 bg-white py-8">
+      {/* Pie de página profesional */}
+      <footer className="border-t border-slate-200 bg-white py-8 mt-16">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© 2026 PlantillasYGuias. Todos los derechos reservados.</p>
-          <div className="flex gap-4">
-            <Link href="/politica-de-privacidad" className="hover:underline">Política de Privacidad</Link>
-            <Link href="/politica-de-cookies" className="hover:underline">Política de Cookies</Link>
-            <Link href="/aviso-legal" className="hover:underline">Aviso Legal</Link>
-            <Link href="/contacto" className="hover:underline">Contacto</Link>
+          <p>© 2026 PlantillasYGuías. Todos los derechos reservados.</p>
+          <div className="flex gap-6">
+            <Link href="/politica-de-privacidad" className="hover:text-slate-900 transition-colors">Política de Privacidad</Link>
+            <Link href="/politica-de-cookies" className="hover:text-slate-900 transition-colors">Política de Cookies</Link>
+            <Link href="/contacto" className="hover:text-slate-900 transition-colors">Contacto</Link>
           </div>
         </div>
       </footer>
-    </main>
+    </div>
   )
 }
