@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function CartaRenuncia() {
@@ -9,12 +9,15 @@ export default function CartaRenuncia() {
   const [cargo, setCargo] = useState('')
   const [fechaBaja, setFechaBaja] = useState('')
   const [copiado, setCopiado] = useState(false)
+  const [fechaHoy, setFechaHoy] = useState('')
 
-  const fechaHoy = new Date().toLocaleDateString('es-ES', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  })
+  useEffect(() => {
+    setFechaHoy(new Date().toLocaleDateString('es-ES', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }))
+  }, [])
 
   const textoCarta = `A la atencion del Departamento de Recursos Humanos de ${empresa || '[Nombre de la Empresa]'}:
 
@@ -28,7 +31,7 @@ Atentamente,
 
 ____________________________
 ${nombre || '[Tu Nombre Completo]'}
-Fecha de comunicacion: ${fechaHoy}`
+Fecha de comunicacion: ${fechaHoy || '[Fecha actual]'}`
 
   const copiarTexto = () => {
     navigator.clipboard.writeText(textoCarta)
@@ -108,7 +111,7 @@ Fecha de comunicacion: ${fechaHoy}`
             </div>
           </div>
 
-          {/* Vista Previa de la Carta */}
+          {/* Vista Previa */}
           <div className="flex flex-col">
             <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex-1 flex flex-col justify-between">
               <div>
@@ -130,7 +133,7 @@ Fecha de comunicacion: ${fechaHoy}`
           </div>
         </div>
 
-        {/* Contenido Informativo SEO */}
+        {/* Contenido Informativo */}
         <article className="mt-16 bg-white p-8 rounded-xl border border-slate-200 max-w-none">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
             Guia Legal: Como presentar una carta de baja voluntaria
@@ -138,17 +141,17 @@ Fecha de comunicacion: ${fechaHoy}`
           
           <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">1. Con cuanto tiempo de antelacion debo avisar?</h3>
           <p className="text-slate-600 text-sm leading-relaxed mb-4">
-            Por regla general, el Estatuto de los Trabajadores estipula un preaviso minimo de 15 dias naturales. No obstante, es fundamental revisar el convenio colectivo aplicable a tu sector o lo estipulado en tu contrato de trabajo, ya que algunos convenios pueden exigir un plazo superior.
+            Por regla general, el Estatuto de los Trabajadores estipula un preaviso minimo de 15 dias naturales. No obstante, es fundamental revisar el convenio colectivo aplicable a tu sector.
           </p>
 
           <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">2. Formas de entregar la carta</h3>
           <p className="text-slate-600 text-sm leading-relaxed mb-4">
-            Se recomienda presentar el documento por duplicado en mano al responsable de Recursos Humanos o Direccion, solicitando que firmen y sellen la copia que te quedas como fe de recepcion. En caso de teletrabajo o imposibilidad presencial, la via legalmente idonea es el envio de un burofax con acuse de recibo.
+            Se recomienda presentar el documento por duplicado en mano al responsable de Recursos Humanos o Direccion, solicitando que firmen y sellen la copia que te quedas.
           </p>
 
           <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">3. Tengo derecho a finiquito tras la renuncia?</h3>
           <p className="text-slate-600 text-sm leading-relaxed">
-            Si. La baja voluntaria no da derecho a indemnizacion por despido ni a prestacion por desempleo (paro), pero el trabajador conserva el derecho a percibir el finiquito correspondiente a los dias trabajados del mes y vacaciones pendientes.
+            Si. La baja voluntaria no da derecho a indemnizacion por despido ni a prestacion por desempleo (paro), pero el trabajador conserva el derecho a percibir el finiquito correspondiente.
           </p>
         </article>
       </div>
