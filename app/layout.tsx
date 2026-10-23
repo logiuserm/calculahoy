@@ -8,21 +8,16 @@ const jakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Plantillas y Guias Utiles | Documentos Legales Rellenables 2026',
-  description: 'Generador gratuito de modelos oficiales, contratos de alquiler y cartas de renuncia con previsualizacion en tiempo real.',
-  keywords: ['plantillas legales', 'carta renuncia voluntaria', 'contrato alquiler modelo', 'carta reclamacion', 'modelos pdf'],
-  authors: [{ name: 'PlantillasYGuias' }],
+  title: 'Plantillas & Guias Utiles | Estudio Digital de Documentos Legales',
+  description: 'Crea, personaliza y descarga documentos legales, cartas de renuncia y contratos en tiempo real con tecnologia fluida e intuitiva.',
+  keywords: ['plantillas legales', 'carta renuncia voluntaria', 'contrato alquiler', 'carta reclamacion', 'documentos pdf'],
   openGraph: {
-    title: 'Plantillas y Guias Utiles | Modelos Legales Rellenables',
-    description: 'Genera cartas y contratos legales gratis en segundos.',
+    title: 'Plantillas & Guias Utiles | Documentos Legales Rellenables 2026',
+    description: 'Personalizacion interactiva de contratos y cartas oficiales.',
     url: 'https://plantillas-y-guias-utiles.netlify.app',
     siteName: 'PlantillasYGuias',
     locale: 'es_ES',
     type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
   }
 }
 
@@ -31,16 +26,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const jsonLd = {
+  const schemaOrg = {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'PlantillasYGuias',
+    '@type': 'WebApplication',
+    name: 'PlantillasYGuias Studio',
     url: 'https://plantillas-y-guias-utiles.netlify.app',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://plantillas-y-guias-utiles.netlify.app/#plantillas',
-      'query-input': 'required name=search_term_string'
-    }
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'All',
+    browserRequirements: 'Requires JavaScript'
   }
 
   return (
@@ -48,13 +41,13 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${jakarta.className} bg-slate-950 text-slate-100 min-h-screen antialiased relative overflow-x-hidden`}>
-        {/* Glow ambient background */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-indigo-600/15 blur-[120px] rounded-full pointer-events-none -z-10 glow-effect" />
-        <div className="fixed bottom-0 right-0 w-[500px] h-[300px] bg-purple-600/10 blur-[100px] rounded-full pointer-events-none -z-10" />
+      <body className={`${jakarta.className} bg-slate-950 text-slate-100 min-h-screen antialiased relative overflow-x-hidden selection:bg-indigo-500 selection:text-white`}>
+        {/* Lucid ambient lights */}
+        <div className="fixed -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-indigo-600/15 blur-[140px] rounded-full pointer-events-none -z-10 glow-ambient" />
+        <div className="fixed bottom-0 right-0 w-[600px] h-[400px] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none -z-10" />
         
         {children}
       </body>
