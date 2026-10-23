@@ -24,7 +24,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section / Encabezado principal */}
+      {/* Hero Section */}
       <main className="mb-auto">
         <section className="max-w-4xl mx-auto px-4 pt-16 pb-12 text-center">
           <span className="inline-block px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold rounded-full mb-4 shadow-xs">
@@ -60,6 +60,48 @@ export default function Home() {
               </div>
               <Link 
                 href="/plantillas/carta-renuncia" 
+                className="mt-6 inline-flex items-center justify-center w-full py-2.5 px-4 bg-slate-900 hover:bg-indigo-600 text-white font-semibold text-sm rounded-xl transition-colors shadow-xs"
+              >
+                Rellenar Plantilla &rarr;
+              </Link>
+            </div>
+
+            {/* Tarjeta 2: Contrato de Alquiler */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all group flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-md">
+                  Vivienda
+                </span>
+                <h3 className="text-xl font-bold mt-4 text-slate-900 group-hover:text-indigo-600 transition-colors">
+                  Contrato de Alquiler
+                </h3>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  Borrador básico ajustado a la LAU para arrendamiento de vivienda con datos del inmueble y renta.
+                </p>
+              </div>
+              <Link 
+                href="/plantillas/contrato-alquiler" 
+                className="mt-6 inline-flex items-center justify-center w-full py-2.5 px-4 bg-slate-900 hover:bg-indigo-600 text-white font-semibold text-sm rounded-xl transition-colors shadow-xs"
+              >
+                Rellenar Plantilla &rarr;
+              </Link>
+            </div>
+
+            {/* Tarjeta 3: Reclamación */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md hover:border-indigo-200 transition-all group flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold px-2.5 py-1 bg-amber-50 text-amber-600 rounded-md">
+                  Consumo
+                </span>
+                <h3 className="text-xl font-bold mt-4 text-slate-900 group-hover:text-indigo-600 transition-colors">
+                  Carta de Reclamación
+                </h3>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  Modelo formal para exigir reembolsos, bajas de servicios o solución de incidencias comerciales.
+                </p>
+              </div>
+              <Link 
+                href="/plantillas/reclamacion" 
                 className="mt-6 inline-flex items-center justify-center w-full py-2.5 px-4 bg-slate-900 hover:bg-indigo-600 text-white font-semibold text-sm rounded-xl transition-colors shadow-xs"
               >
                 Rellenar Plantilla &rarr;
