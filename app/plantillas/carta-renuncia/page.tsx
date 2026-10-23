@@ -16,19 +16,19 @@ export default function CartaRenuncia() {
     year: 'numeric'
   })
 
-  const textoCarta = `A la atención del Departamento de Recursos Humanos de ${empresa || '[Nombre de la Empresa]'}:
+  const textoCarta = `A la atencion del Departamento de Recursos Humanos de ${empresa || '[Nombre de la Empresa]'}:
 
-Por medio de la presente carta, les comunico mi decisión individual y voluntaria de rescindir mi contrato de trabajo con la empresa, en la cual he venido desempeñando el puesto de ${cargo || '[Tu Cargo]'}.
+Por medio de la presente carta, les comunico mi decision individual y voluntaria de rescindir mi contrato de trabajo con la empresa, en la cual he venido desempenando el puesto de ${cargo || '[Tu Cargo]'}.
 
-En cumplimiento con la normativa laboral vigente y respetando el periodo de preaviso legalmente establecido, les informo que mi último día de trabajo en la entidad será el próximo ${fechaBaja || '[Fecha del último día de trabajo]'}.
+En cumplimiento con la normativa laboral vigente y respetando el periodo de preaviso legalmente establecido, les informo que mi ultimo dia de trabajo en la entidad sera el proximo ${fechaBaja || '[Fecha del ultimo dia de trabajo]'}.
 
-Agradezco sinceramente las oportunidades de desarrollo profesional y personal que se me han brindado durante mi estancia en la organización. Quedo a su entera disposición para coordinar la entrega de mis funciones y la firma del correspondiente finiquito y liquidación de haberes hasta la fecha señalada.
+Agradezco sinceramente las oportunidades de desarrollo profesional y personal que se me han brindado durante mi estancia en la organizacion. Quedo a su entera disposicion para coordinar la entrega de mis funciones y la firma del correspondiente finiquito y liquidacion de haberes hasta la fecha senalada.
 
 Atentamente,
 
 ____________________________
 ${nombre || '[Tu Nombre Completo]'}
-Fecha de comunicación: ${fechaHoy}`
+Fecha de comunicacion: ${fechaHoy}`
 
   const copiarTexto = () => {
     navigator.clipboard.writeText(textoCarta)
@@ -54,7 +54,7 @@ Fecha de comunicación: ${fechaHoy}`
           Carta de Renuncia Voluntaria (Baja Voluntaria)
         </h1>
         <p className="text-slate-600 mb-8">
-          Rellena los datos en el formulario y obtén tu carta redactada al instante. Copia el texto o imprímelo directamente.
+          Rellena los datos en el formulario y obten tu carta redactada al instante. Copia el texto o imprimelo directamente.
         </p>
 
         <div className="grid lg:grid-cols-2 gap-8">
@@ -68,7 +68,7 @@ Fecha de comunicación: ${fechaHoy}`
               <label className="block text-xs font-semibold text-slate-700 mb-1">Tu Nombre Completo</label>
               <input 
                 type="text" 
-                placeholder="Ej. María García López" 
+                placeholder="Ej. Maria Garcia Lopez" 
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
                 className="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"
@@ -98,7 +98,7 @@ Fecha de comunicación: ${fechaHoy}`
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Fecha del Último Día de Trabajo</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">Fecha del Ultimo Dia de Trabajo</label>
               <input 
                 type="date" 
                 value={fechaBaja}
@@ -124,31 +124,31 @@ Fecha de comunicación: ${fechaHoy}`
                 onClick={copiarTexto}
                 className="mt-6 w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-sm transition flex items-center justify-center gap-2"
               >
-                {copiado ? '✓ ¡Copiado al Portapapeles!' : 'Copiar Texto de la Carta'}
+                {copiado ? 'Copiat al portapapeles' : 'Copiar Texto de la Carta'}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Contenido Informativo SEO (Fundamental para AdSense) */}
-        <article className="mt-16 bg-white p-8 rounded-xl border border-slate-200 prose max-w-none">
+        {/* Contenido Informativo SEO */}
+        <article className="mt-16 bg-white p-8 rounded-xl border border-slate-200 max-w-none">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
-            Guía Legal: ¿Cómo presentar una carta de baja voluntaria?
+            Guia Legal: Como presentar una carta de baja voluntaria
           </h2>
           
-          <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">1. ¿Con cuánto tiempo de antelación debo avisar?</h3>
+          <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">1. Con cuanto tiempo de antelacion debo avisar?</h3>
           <p className="text-slate-600 text-sm leading-relaxed mb-4">
-            Por regla general, la Ley del Estatuto de los Trabajadores estipula un preaviso mínimo de **15 días naturales**. No obstante, es fundamental revisar el convenio colectivo aplicable a tu sector o lo estipulado en tu contrato de trabajo, ya que algunos convenios pueden exigir un plazo superior (por ejemplo, 30 días para puestos de responsabilidad).
+            Por regla general, el Estatuto de los Trabajadores estipula un preaviso minimo de 15 dias naturales. No obstante, es fundamental revisar el convenio colectivo aplicable a tu sector o lo estipulado en tu contrato de trabajo, ya que algunos convenios pueden exigir un plazo superior.
           </p>
 
           <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">2. Formas de entregar la carta</h3>
           <p className="text-slate-600 text-sm leading-relaxed mb-4">
-            Se recomienda presentar el documento por duplicado en mano al responsable de Recursos Humanos o Dirección, solicitando que firmen y sellen la copia que te quedas como fe de recepción. En caso de teletrabajo o imposibilidad presencial, la vía legalmente idónea es el envío de un **burofax con acuse de recibo y certificado de texto**.
+            Se recomienda presentar el documento por duplicado en mano al responsable de Recursos Humanos o Direccion, solicitando que firmen y sellen la copia que te quedas como fe de recepcion. En caso de teletrabajo o imposibilidad presencial, la via legalmente idonea es el envio de un burofax con acuse de recibo.
           </p>
 
-          <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">3. ¿Tengo derecho a finiquito tras la renuncia?</h3>
+          <h3 className="text-lg font-semibold text-slate-800 mt-4 mb-2">3. Tengo derecho a finiquito tras la renuncia?</h3>
           <p className="text-slate-600 text-sm leading-relaxed">
-            Sí. La baja voluntaria no da derecho a indemnización por despido ni a prestación por desempleo (paro), pero el trabajador conserva **100% el derecho a percibir el finiquito**. Este debe incluir los días trabajados en el mes en curso, la parte proporcional de las pagas extraordinarias no cobradas y los días de vacaciones generados y no disfrutados.
+            Si. La baja voluntaria no da derecho a indemnizacion por despido ni a prestacion por desempleo (paro), pero el trabajador conserva el derecho a percibir el finiquito correspondiente a los dias trabajados del mes y vacaciones pendientes.
           </p>
         </article>
       </div>
